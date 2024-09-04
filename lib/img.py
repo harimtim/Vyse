@@ -27,9 +27,12 @@ def create_vyse(filename:str = "vyse.bmp"):
     draw = ImageDraw.Draw(img)
     font1 = ImageFont.truetype("vyse.ttf", 60)
     font2 = ImageFont.truetype("vyse.ttf", 12)
+    font3 = ImageFont.truetype("vyse.ttf", 8)
 
     draw.text((WIDTH/2, HEIGHT/2-10), "Vyse", font=font1, fill="black", anchor="mm")
     draw.text((WIDTH/2, HEIGHT/2+30), "made by harimtim", font=font2, fill="black", anchor="mm")
+    draw.text((5, 5), time.strftime("%T")+" Uhr", font=font3, fill="black")
+    draw.text((245, 117), "BETA", font=font3, fill="black", anchor="rb")
 
     img.save(f"./img/{filename}")
 
