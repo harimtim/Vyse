@@ -48,7 +48,6 @@ def check_ssh():
 
 epd = module.EPD()
 epd.init()
-print(get_interfaces())
 
 while True:
     img.create_vyseV2(check_adapter(), check_ssh())
