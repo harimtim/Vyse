@@ -1,5 +1,6 @@
 import logging
 from lib import config
+import time
 
 # Display resolution
 EPD_WIDTH       = 122
@@ -238,6 +239,12 @@ class EPD:
     def display(self, image):
         self.send_command(0x24)
         self.send_data2(image)  
+        self.TurnOnDisplay()
+
+    def harimtim(self, image):
+        self.send_command(0x24)
+        self.send_data2(image)  
+        time.sleep(1)
         self.TurnOnDisplay()
     
     '''

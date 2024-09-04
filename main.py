@@ -22,10 +22,17 @@ def check_ssh():
 
 
 epd = module.EPD()
-epd.init_fast()
+epd.init()
+epd.Clear(0xFF)
+epd.Clear(0xFF)
+epd.Clear(0xFF)
 
 for i in range(10+1):
     img.create_modern_clock(wlan=get_ssid())
-    epd.display_fast(epd.getbuffer(Image.open("./img/info.bmp")))
+    epd.harimtim(epd.getbuffer(Image.open("./img/clock.bmp")))
+    epd.harimtim(epd.getbuffer(Image.open("./img/clock.bmp")))
+    epd.harimtim(epd.getbuffer(Image.open("./img/clock.bmp")))
 
-epd.Clear()
+epd.Clear(0xFF)
+epd.Clear(0xFF)
+epd.Clear(0xFF)
