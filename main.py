@@ -28,5 +28,3 @@ epd.Clear(0xFF)
 for i in range(10+1):
     img.create_modern_clock(wlan=get_ssid())
     epd.display(epd.getbuffer(Image.open("./img/clock.bmp")))
-    epd.display(epd.getbuffer(Image.open("./img/clock.bmp")))
-    epd.display(epd.getbuffer(Image.open("./img/clock.bmp")))
