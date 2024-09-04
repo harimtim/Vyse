@@ -27,7 +27,7 @@ def create_vyse(filename:str = "vyse.bmp"):
     draw = ImageDraw.Draw(img)
     font1 = ImageFont.truetype("vyse.ttf", 60)
     font2 = ImageFont.truetype("vyse.ttf", 12)
-    font3 = ImageFont.truetype("vyse.ttf", 8)
+    font3 = ImageFont.truetype("vyse.ttf", 10)
 
     draw.text((WIDTH/2, HEIGHT/2-10), "Vyse", font=font1, fill="black", anchor="mm")
     draw.text((WIDTH/2, HEIGHT/2+30), "made by harimtim", font=font2, fill="black", anchor="mm")

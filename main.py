@@ -27,3 +27,4 @@ epd.init()
 while True:
     img.create_vyse()
     epd.display(epd.getbuffer(Image.open("./img/vyse.bmp")))
+    time.sleep(10)
