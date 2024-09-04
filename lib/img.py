@@ -22,7 +22,7 @@ def create_modern_clock(wlan:str, filename:str = "clock.bmp"):
     draw.text((WIDTH/2, 110), f"WLAN: {wlan}", fill="black", font=font, anchor="mm")
     img.save(f"./img/{filename}")
 
-def create_vyse(filename:str = "vyse.bmp"):
+def create_vyse(wifi:bool, filename:str = "vyse.bmp"):
     img = Image.new("RGB", (WIDTH, HEIGHT), "white")
     draw = ImageDraw.Draw(img)
     font1 = ImageFont.truetype("vyse.ttf", 60)
@@ -34,6 +34,12 @@ def create_vyse(filename:str = "vyse.bmp"):
     draw.text((5, 5), time.strftime("%T")+" Uhr", font=font3, fill="black")
     draw.text((245, 117), "BETA", font=font3, fill="black", anchor="rb")
 
-    img.save(f"./img/{filename}")
+    if wifi == True:
+        bmp = "wifi1.bmp"
+    else:
+        bmp = "wifi0.bmp"
 
-create_vyse()
+    wifi = Image.open(f"./img/{bmp}").resize(size=(16, 16)).convert("RGBA")
+    img.paste(wifi, (228, 3), wifi)
+
+    img.save(f"./img/{filename}")
