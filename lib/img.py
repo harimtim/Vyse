@@ -25,10 +25,12 @@ def create_modern_clock(wlan:str, filename:str = "clock.bmp"):
 def create_vyse(filename:str = "vyse.bmp"):
     img = Image.new("RGB", (WIDTH, HEIGHT), "white")
     draw = ImageDraw.Draw(img)
-    font1 = ImageFont.truetype("vyse.ttf", 40)
-    font2 = ImageFont.truetype("vyse.ttf", 8)
+    font1 = ImageFont.truetype("vyse.ttf", 60)
+    font2 = ImageFont.truetype("vyse.ttf", 12)
 
     draw.text((WIDTH/2, HEIGHT/2-10), "Vyse", font=font1, fill="black", anchor="mm")
-    draw.text((WIDTH/2, HEIGHT/2+20), "made by harimtim", font=font2, fill="black", anchor="mm")
+    draw.text((WIDTH/2, HEIGHT/2+30), "made by harimtim", font=font2, fill="black", anchor="mm")
 
     img.save(f"./img/{filename}")
+
+create_vyse()
