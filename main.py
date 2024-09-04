@@ -1,5 +1,6 @@
 from lib import module, img
 from PIL import Image
+import subprocess
 import socket
 import pywifi
 import time
@@ -35,14 +36,21 @@ def check_adapter():
     if "wlan1" in get_interfaces():
         return True
     else:
-        return False         
+        return False
 
+def check_ssh():
+    result = subprocess.run(["ss", "-t"], capture_output=True, text=True)
+    output = result.stdout.rstrip("Peer Address:Port Process")
+    if "ssh" in output:
+       return True
+    else:
+        return False   
 
 epd = module.EPD()
 epd.init()
 print(get_interfaces())
 
 while True:
-    img.create_vyse(check_adapter())
+    img.create_vyseV2(check_adapter(), check_ssh())
     epd.display(epd.getbuffer(Image.open("./img/vyse.bmp")))
     time.sleep(10)
