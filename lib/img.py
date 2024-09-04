@@ -1,7 +1,8 @@
 from PIL import ImageFont, ImageDraw, Image
 import time
+import sys
 
-DIR = "../img"
+sys.path.append("./img")
 
 def create_clock_img(filename:str = "clock.bmp"):
     img = Image.new("RGB", (250, 122), "white")
