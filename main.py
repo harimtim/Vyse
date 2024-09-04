@@ -23,9 +23,7 @@ def check_ssh():
 
 epd = module.EPD()
 epd.init()
-img.create_vyse()
-epd.display(epd.getbuffer(Image.open("./img/vyse.bmp")))
-epd.display(epd.getbuffer(Image.open("./img/vyse.bmp")))
-epd.display(epd.getbuffer(Image.open("./img/vyse.bmp")))
-epd.display(epd.getbuffer(Image.open("./img/vyse.bmp")))
-epd.display(epd.getbuffer(Image.open("./img/vyse.bmp")))
+
+while True:
+    img.create_vyse()
+    epd.display(epd.getbuffer(Image.open("./img/vyse.bmp")))
