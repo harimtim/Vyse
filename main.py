@@ -39,12 +39,15 @@ def check_adapter():
         return False
 
 def check_ssh():
-    result = subprocess.run(["ss", "-t"], capture_output=True, text=True)
-    output = result.stdout.rstrip("Peer Address:Port Process")
-    if "ssh" in output:
-       return True
-    else:
-        return False   
+    try:
+        result = subprocess.run(["ss", "-t"], capture_output=True, text=True)
+        output = result.stdout.rstrip("Peer Address:Port Process")
+        if "ssh" in output:
+            return True
+        else:
+            return False
+    except:
+        return False
 
 epd = module.EPD()
 epd.init()
