@@ -69,5 +69,3 @@ def create_vyseV2(wifi:bool, ssh:bool, filename:str = "vyse.bmp"):
         img.paste(ssh, (228, 20), ssh)
 
     img.save(f"./img/{filename}")
-
-create_vyseV2(True)
