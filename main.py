@@ -7,7 +7,7 @@ import time
 import sys
 import os
 
-sys.path.append("/root/Vyse")
+sys.path.append("/root/Vyse/")
 
 def get_ssid():
     try:
