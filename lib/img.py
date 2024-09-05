@@ -22,7 +22,7 @@ def create_vyseV2(wifi:bool, ssh:bool, web: bool, filename:str = "vyse.bmp"):
         img.paste(wifi, (228, 5), wifi)
         #draw.text((245, 117), "IP: localhost", fill="black", font=font3, anchor="rb")
     else:
-        wifi = Image.open(f"./img/warning.bmp").resize(size=(16, 16)).convert("RGBA")
+        wifi = Image.open(f"./img/wifi-off.bmp").resize(size=(16, 16)).convert("RGBA")
         img.paste(wifi, (228, 5), wifi)
 
     if ssh:
