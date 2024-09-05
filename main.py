@@ -4,10 +4,8 @@ import subprocess
 import socket
 import pywifi
 import time
-import sys
 import os
 
-sys.path.append("/root/Vyse/")
 
 def get_ssid():
     try:
@@ -51,11 +49,19 @@ def check_ssh():
             return False
     except:
         return False
+    
+def check_internet(host="8.8.8.8", port=53, timeout=2):
+    try:
+        socket.setdefaulttimeout(timeout)
+        socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect((host, port))
+        return True
+    except socket.error:
+        return False
 
 epd = module.EPD()
 epd.init()
 
 while True:
-    img.create_vyseV2(check_adapter(), check_ssh())
+    img.create_vyseV2(check_adapter(), check_ssh(), check_internet())
     epd.display(epd.getbuffer(Image.open("./img/vyse.bmp")))
     time.sleep(10)
