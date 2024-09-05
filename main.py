@@ -4,7 +4,10 @@ import subprocess
 import socket
 import pywifi
 import time
+import sys
 import os
+
+sys.path.append("/root/Vyse")
 
 def get_ssid():
     try:
@@ -17,7 +20,7 @@ def check_ssh():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(1)
     try:
-        sock.connect(("localhist", 22))
+        sock.connect(("localhost", 22))
     except (socket.timeout, socket.error):
         return False
     return True
